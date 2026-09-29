@@ -1,5 +1,6 @@
-const { pbkdf2, pbkdf2Sync } = require("node:crypto");
+const { pbkdf2,  } = require("crypto");
 const { readFile } = require("fs");
+const http = require("http");
 
 const a = 100000,
   b = 2000;
@@ -16,5 +17,13 @@ pbkdf2("password", "salt", 10000000, 64, "sha512", (err, derivedKey) => {
   if (err) throw err;
   console.log(derivedKey.toString("hex"));
 });
+
+// http.get("http://www.github.com", (res) => {
+//   console.log("MEOW");
+// });
+
+setTimeout(() => {
+  console.log("Timer Over!");
+}, 0);
 
 console.log("Mul: ", a * b);
